@@ -1,6 +1,6 @@
 use std::env;
 use std::fs;
-use sizers::{compress};
+use js_sizers::{compress};
 
 fn main() {
     let args: Vec<String> = env::args().collect();
