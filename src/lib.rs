@@ -13,7 +13,7 @@ use swc::{
 
 pub struct CompressOutput {
   pub origin: u128,
-  pub gzip: u128,
+  pub gzipped: u128,
   pub minified: u128
 }
 
@@ -54,7 +54,7 @@ pub fn compress(code: &String) -> CompressOutput {
     Err(e) => panic!("{:?}", e),
   }
 
-  let compressed_bytes = match encoder.finish() {
+  let gzipped_bytes = match encoder.finish() {
     Ok(bytes) => bytes.len(),
     Err(e) => panic!("{:?}", e),
   };
@@ -62,6 +62,6 @@ pub fn compress(code: &String) -> CompressOutput {
   CompressOutput {
     origin: code.as_bytes().len() as u128,
     minified: minified_bytes.len() as u128,
-    gzip: compressed_bytes as u128,
+    gzipped: gzipped_bytes as u128,
   }
 }
