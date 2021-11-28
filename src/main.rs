@@ -6,7 +6,7 @@ fn main() {
     let args: Vec<String> = env::args().collect();
     let filename = &args[1];
 
-    println!("Reading file: {}...", filename);
+    println!("Reading file: {}...\n", filename);
 
     let code = fs::read_to_string(filename).expect("Could not read file");
     let output = compress(&code);

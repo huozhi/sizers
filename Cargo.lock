@@ -475,7 +475,7 @@ dependencies = [
 
 [[package]]
 name = "js_sizers"
-version = "0.1.0"
+version = "0.1.1"
 dependencies = [
  "anyhow",
  "flate2",
@@ -1777,12 +1777,8 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "dffe6058ced7adef0090acbabba80af50f145688585f79d8102fd87e21e7d0b0"
 dependencies = [
  "swc_ecma_ast",
- "swc_ecma_codegen",
  "swc_ecma_minifier",
  "swc_ecma_parser",
- "swc_ecma_transforms",
- "swc_ecma_utils",
- "swc_ecma_visit",
 ]
 
 [[package]]

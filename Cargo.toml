@@ -1,7 +1,7 @@
 [package]
 name = "js_sizers"
 description = "get your javascript file size after minification and gzip"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2018"
 license = "MIT"
 repository = "https://github.com/huozhi/sizers"
@@ -11,4 +11,4 @@ readme = "README.md"
 flate2 = "1.0.22"
 anyhow = "1.0.41"
 swc = { version = "0.87.2" }
-swc_ecmascript = { version = "0.88.1", features = ["codegen", "minifier", "optimization", "parser", "react", "transforms", "typescript", "utils", "visit"] }
+swc_ecmascript = { version = "0.88.1", features = ["minifier"] }
