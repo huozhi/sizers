@@ -13,5 +13,5 @@ fn main() {
 
     println!("origin: {} bytes", output.origin);
     println!("minified: {} bytes", output.minified);
-    println!("gzip: {} bytes", output.gzip);
+    println!("gzipped: {} bytes", output.gzip);
 }
