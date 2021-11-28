@@ -5,7 +5,10 @@ use flate2::write::ZlibEncoder;
 use std::sync::Arc;
 use swc::config::util::{BoolOrObject};
 use swc::common::{FileName, FilePathMapping, SourceMap};
-use swc::ecmascript::minifier::option::terser::{TerserEcmaVersion};
+use swc::ecmascript::minifier::option::{
+  MangleOptions,
+  terser::{TerserEcmaVersion}
+};
 use swc::{
   config::{JsMinifyOptions, JsMinifyFormatOptions},
   try_with_handler, Compiler,
@@ -27,13 +30,13 @@ pub fn swc_minify(s: &str) -> Result<String, Error> {
 
   try_with_handler(c.cm.clone(), false, |handler| {
     let opts = JsMinifyOptions {
+      compress: BoolOrObject::Bool(true),
+      mangle: BoolOrObject::Obj(MangleOptions { top_level: true, ..Default::default() }),
       format: JsMinifyFormatOptions::default(),
+      ecma: TerserEcmaVersion::Num(2016),
       toplevel: false,
       keep_fnames: false,
       keep_classnames: false,
-      ecma: TerserEcmaVersion::Num(2016),
-      mangle: BoolOrObject::Bool(false),
-      compress: BoolOrObject::Bool(false),
       inline_sources_content: false,
       output_path: Option::None,
       module: false,
