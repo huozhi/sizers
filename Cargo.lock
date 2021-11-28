@@ -475,7 +475,7 @@ dependencies = [
 
 [[package]]
 name = "js_sizers"
-version = "0.1.2"
+version = "0.1.3"
 dependencies = [
  "anyhow",
  "flate2",
@@ -1312,9 +1312,9 @@ checksum = "6446ced80d6c486436db5c078dde11a9f73d42b57fb273121e160b84f63d894c"
 
 [[package]]
 name = "swc"
-version = "0.87.2"
+version = "0.87.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "72aeba7eefb34284039875b887fa174c93205b07482ae5a2bae3ccf73cbb897f"
+checksum = "010977819a7374d75dc8850b3eea39eb7aa713e2232c14e85bf5cc2a9f9d5e93"
 dependencies = [
  "ahash",
  "anyhow",
