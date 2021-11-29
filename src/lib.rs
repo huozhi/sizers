@@ -49,15 +49,9 @@ pub fn compress(code: &String) -> CompressOutput {
   let minified_code = swc_minify(&code).expect("failed to minify");
   let minified_bytes = minified_code.as_bytes();
   
-  match encoder.write_all(minified_bytes) {
-    Ok(_) => {}
-    Err(e) => panic!("{:?}", e),
-  }
+  encoder.write_all(minified_bytes).unwrap();
 
-  let gzipped_bytes = match encoder.finish() {
-    Ok(bytes) => bytes.len(),
-    Err(e) => panic!("{:?}", e),
-  };
+  let gzipped_bytes = encoder.finish().map(|bytes| bytes.len()).unwrap();
 
   CompressOutput {
     origin: code.as_bytes().len() as u128,
