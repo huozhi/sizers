@@ -10,6 +10,6 @@ readme = "README.md"
 [dependencies]
 flate2 = "1.0.22"
 anyhow = "1.0.41"
-swc = { version = "0.87.2" }
+swc = { version = "0.88.0" }
 swc_ecmascript = { version = "0.88.1", features = ["minifier"] }
 pretty-bytes = "0.2.2"

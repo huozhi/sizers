@@ -5,10 +5,13 @@ use flate2::write::ZlibEncoder;
 use std::sync::Arc;
 use swc::config::util::{BoolOrObject};
 use swc::common::{FileName, FilePathMapping, SourceMap};
-use swc::ecmascript::minifier::option::{MangleOptions};
 use swc::{
-  config::{JsMinifyOptions},
+  config::{JsMinifyOptions, JsMinifyFormatOptions},
   try_with_handler, Compiler,
+};
+use swc::ecmascript::minifier::option::{
+  MangleOptions,
+  terser::{TerserEcmaVersion}
 };
 
 pub struct CompressOutput {
@@ -27,11 +30,18 @@ pub fn swc_minify(s: &str) -> Result<String, Error> {
 
   try_with_handler(c.cm.clone(), false, |handler| {
     let opts = JsMinifyOptions {
-      mangle: BoolOrObject::Obj(MangleOptions {
-        top_level: true,
-        ..Default::default()
-      }),
-      ..Default::default()
+      module: false,
+      safari10: false,
+      toplevel: false,
+      keep_fnames: false,
+      keep_classnames: false,
+      inline_sources_content: false,
+      output_path: Option::None,
+      compress: BoolOrObject::Bool(true),
+      ecma: TerserEcmaVersion::Num(2016),
+      source_map: BoolOrObject::Bool(false),
+      format: JsMinifyFormatOptions::default(),
+      mangle: BoolOrObject::Obj(MangleOptions { top_level: true, ..Default::default() }),
     };
     
 
