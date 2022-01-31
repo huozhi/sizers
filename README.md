@@ -17,9 +17,9 @@ js_sizers ./test.js
 # Output
 Reading file: ./test.js...
 
-origin: 43235 bytes
-minified: 10091 bytes
-gzipped: 4167 bytes
+origin   >> 43.23 kB (bytes: 43235)
+minified >> 9.24 kB (bytes: 9241)
+gzipped  >> 4.03 kB (bytes: 4028)
 ```
 
 ### License
