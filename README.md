@@ -17,9 +17,18 @@ js_sizers ./test.js
 # Output
 Reading file: ./test.js...
 
-origin   >> 43.23 kB (bytes: 43235)
-minified >> 9.24 kB (bytes: 9241)
-gzipped  >> 4.03 kB (bytes: 4028)
+origin   >> 20.38 kB (20384 bytes)
+minified >> 3.73 kB (3733 bytes)
+gzipped  >> 1.89 kB (1894 bytes)
+```
+
+### Development
+
+```sh
+cargo build
+
+touch test.js # create a test file as input and edit
+cargo run ./test.js
 ```
 
 ### License

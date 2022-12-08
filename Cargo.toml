@@ -1,7 +1,7 @@
 [package]
 name = "js_sizers"
 description = "get your javascript file size after minification and gzip"
-version = "0.1.6"
+version = "0.2.0"
 edition = "2018"
 license = "MIT"
 repository = "https://github.com/huozhi/sizers"
@@ -10,6 +10,21 @@ readme = "README.md"
 [dependencies]
 flate2 = "1.0.22"
 anyhow = "1.0.41"
-swc = { version = "0.119.9" }
-swc_ecmascript = { version = "0.111.9", features = ["minifier"] }
+swc_core = { version = "0.43.23", features = [
+  "ecma_ast",
+  "ecma_visit",
+  "ecma_loader_node",
+  "ecma_loader_lru",
+  "ecma_utils",
+  "ecma_minifier",
+  "ecma_transforms",
+  "__ecma_transforms",
+  "ecma_transforms_react",
+  "ecma_transforms_typescript",
+  "ecma_parser",
+  "ecma_parser_typescript",
+  "cached",
+  "base"
+] }
+
 pretty-bytes = "0.2.2"
